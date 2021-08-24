@@ -58,18 +58,11 @@ set(CMAKE_CXX_FLAGS
     )
 find_package(Torch REQUIRED)
 
-option(BUILD_EXAMPLES "Build example" OFF) # default ON
-if(BUILD_EXAMPLES)
-    add_subdirectory(examples)
-endif()
-
-option(INITIALIZE_K4A_SDK "Initialize the kinect SDK project" ON) # default ON
-if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
-    if(INITIALIZE_K4A_SDK)
-        execute_process(
-            COMMAND /bin/bash ./scripts/initialize_azure_kinect_sensor_sdk.sh -j 12
-            WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
-    endif()
+option(INITIALIZE_K4A_SDK "Initialize K4a SDK submodule" ON)
+if(INITIALIZE_K4A_SDK)
+    execute_process(
+        COMMAND /bin/bash ./scripts/setup_k4a_sdk.sh -j 12
+        WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 endif()
 
 # after SDK initialization setup K4A (kinect SDK) paths
