@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-project(cv-k4a)
+project(k4a-capture)
 
 # optimization for dev environments
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -88,14 +88,14 @@ file(GLOB_RECURSE LIBS_SRC
     )
 
 # add executable
-add_executable(cv-k4a
+add_executable(k4a-capture
     ${EXT_SRC}
     ${LIBS_SRC}
     ${SRC_DIR}/main.cpp
     )
 
 # include directories
-target_include_directories(cv-k4a PRIVATE
+target_include_directories(k4a-capture PRIVATE
     ${OpenCV_INCLUDE_DIRS}
     ${K4A_VERSION}
     ${K4A_INCLUDE}
@@ -103,7 +103,7 @@ target_include_directories(cv-k4a PRIVATE
     )
 
 # link libraries
-target_link_libraries(cv-k4a
+target_link_libraries(k4a-capture
     ${OpenCV_LIBS}
     glog
     gflags
@@ -113,7 +113,7 @@ target_link_libraries(cv-k4a
 
 option(EXECUTE_TARGET "Execute post build" ON) # default OFF
 if(EXECUTE_TARGET)
-    add_custom_command(TARGET cv-k4a
+    add_custom_command(TARGET k4a-capture
         POST_BUILD
         COMMAND ./scripts/execute.sh
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
