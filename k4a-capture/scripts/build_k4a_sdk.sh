@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# build_kinect_sdk.sh:
+# build_K4a_SDK.sh:
 #     Build the Azure-Kinect-Sensor-SDK submodule project
 #     cmake project using with -GNinja.
 #
@@ -8,13 +8,13 @@
 # created: 2020-11-06 13:41
 # Github: https://github.com/antiqueeverett/
 
-PROJECT_DIR=$(dirname $(dirname $(readlink -f "$0")))
+PROJECT_DIRECTORY="$(dirname "$(dirname "$(readlink -f "$0")")")"
 echo "-- building Azure-Kinect-Sensor-SDK from: $PROJECT_DIR"
 
 # -- build directory
-build="$PROJECT_DIR/external/Azure-Kinect-Sensor-SDK/build"
+build="$PROJECT_DIRECTORY/external/Azure-Kinect-Sensor-SDK/build"
 
-# -- clean old build files
+# -- make sure to clear any old build files
 if [ -d "$build" ]; then rm -Rf "$build"; fi
 
 # -- build with CMake -GNinja
