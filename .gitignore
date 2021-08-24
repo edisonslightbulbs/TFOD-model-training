@@ -16,3 +16,4 @@ external/
 local/
 src/temp.cpp
 external/libtorch/
+*.png
