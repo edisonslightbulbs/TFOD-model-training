@@ -1,21 +1,17 @@
-/tfod
-/Tensorflow
-
-/.ipynb_checkpoints
-/ipynb_checkpoints
-.ipynb_checkpoints
+.idea/
+build/
+cmake-build-debug/
 
 /model-training/ipynb_checkpoints
 /model-training/.ipynb_checkpoints
 model-training/.ipynb_checkpoints
 
-.idea/
-build/
-cmake-build-debug/
-
-*.write
 *.log
 .DS_Store
 .cache/
 local/
-*.png
+*.pbtxt
+*.data*
+*.index
+*.config
+model-training/tfod-venv
