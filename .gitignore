@@ -1,8 +1,13 @@
 /tfod
 /Tensorflow
+
 /.ipynb_checkpoints
 /ipynb_checkpoints
 .ipynb_checkpoints
+
+/model-training/ipynb_checkpoints
+/model-training/.ipynb_checkpoints
+model-training/.ipynb_checkpoints
 
 .idea/
 build/
@@ -11,9 +16,6 @@ cmake-build-debug/
 *.write
 *.log
 .DS_Store
-external/
 .cache/
 local/
-src/temp.cpp
-external/libtorch/
 *.png
