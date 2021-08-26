@@ -15,3 +15,7 @@ local/
 *.index
 *.config
 model-training/tfod-venv
+*.record
+model-training/models/pretrained/
+model-training/models/checkpoint
+model-training/models/train

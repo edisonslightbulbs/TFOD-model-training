@@ -1,12 +1,11 @@
-[submodule "k4a-capture/external/Azure-Kinect-Sensor-SDK"]
-	path = k4a-capture/external/Azure-Kinect-Sensor-SDK
-	url = https://github.com/microsoft/Azure-Kinect-Sensor-SDK.git
 [submodule "model-training/external/models"]
-	path = model-training/external/models
-	url = https://github.com/tensorflow/models.git
+    path = model-training/external/models
+    url = https://github.com/tensorflow/models.git
+    ignore = dirty
 [submodule "image-capturing/external/Azure-Kinect-Sensor-SDK"]
-	path = image-capturing/external/Azure-Kinect-Sensor-SDK
-	url = https://github.com/microsoft/Azure-Kinect-Sensor-SDK.git
+    path = image-capturing/external/Azure-Kinect-Sensor-SDK
+    url = https://github.com/microsoft/Azure-Kinect-Sensor-SDK.git
 [submodule "model-training/external/labelImg"]
-	path = model-training/external/labelImg
-	url = https://github.com/tzutalin/labelImg.git
+    path = model-training/external/labelImg
+    url = https://github.com/tzutalin/labelImg.git
+    ignore = dirty
