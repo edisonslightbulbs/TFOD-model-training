@@ -1,55 +1,15 @@
-#### Directory structure
+# Transfer learning using the TF object detection API
 
-    .
-    └── Tensorflow
-        ├── models
-        │   ├── community
-        │   ├── official
-        │   │   ├── colab
-        │   │   ├── common
-        │   │   ├── core
-        │   │   ├── modeling
-        │   │   ├── nlp
-        │   │   ├── pip_package
-        │   │   ├── projects
-        │   │   ├── recommendation
-        │   │   ├── staging
-        │   │   ├── utils
-        │   │   └── vision
-        │   ├── orbit
-        │   │   ├── actions
-        │   │   ├── examples
-        │   │   └── utils
-        │   └── research
-        │       ├── adversarial_text
-        │       ├── attention_ocr
-        │       ├── audioset
-        │       ├── autoaugment
-        │       ├── cognitive_planning
-        │       ├── cvt_text
-        │       ├── deeplab
-        │       ├── deep_speech
-        │       ├── delf
-        │       ├── efficient-hrl
-        │       ├── lfads
-        │       ├── lstm_object_detection
-        │       ├── marco
-        │       ├── nst_blogpost
-        │       ├── object_detection
-        │       ├── pcl_rl
-        │       ├── rebar
-        │       ├── seq_flow_lite
-        │       ├── slim
-        │       └── vid2depth
-        ├── protoc
-        ├── scripts
-        └── workspace
-            ├── annotations
-            ├── images
-            │   ├── captures
-            │   ├── test
-            │   └── train
-            ├── models
-            │   └── my_ssd_mobnet
-            └── pre-trained-models
-                └── ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8
+
+|   Platform |   Hardware	|  Dependencies 	|
+|---	|---	|---	|
+|   :white_square_button: Linux	|   :white_square_button: Azure Kinect 	| :white_square_button: [ gflags](https://github.com/gflags/gflags)	|
+|| |  :white_square_button: [ glog ](https://github.com/google/glog)  	|
+||| :white_square_button:  [ Azure Kinect SDK ](https://github.com/microsoft/Azure-Kinect-Sensor-SDK) |
+||| :white_square_button:  [ opencv ](https://github.com/opencv/opencv) |
+||| :white_square_button:  [ Anaconda ](https://www.anaconda.com/products/individual) |
+||| :white_square_button:  [ Tensor Flow models ](https://github.com/tensorflow/models) |
+||| :white_square_button:  [ Image annotation tool ](https://github.com/tzutalin/labelImg) |
+
+This project is made up of two sub-projects: The image-capturing and model-training sub-project. [`image-capturing`](./image-capturing) is a CMake project that uses Microsoft's Azure Kinect to capture so-called depth color images (of cause, this can be changed). [`model-training`](./model-training) uses shell and python scripts to exploit Tensor Flow's object detection API and train an object detection model using transfer learning. The notebooks in model-training are self-documenting, but more on that in the [`model-training README.md`](./model-training/README.md).
+
