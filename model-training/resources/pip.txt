@@ -1,7 +1,4 @@
-pip
-setuptools
 ipykernel
-"ipython[all]"
 six==1.15.0
 pyqt5
 lxml
@@ -9,8 +6,8 @@ avro-python3==1.9.1
 absl-py==0.10
 httplib2
 pydot
-tensorflow==2.6.0
-tensorflow-gpu==2.6.0
+tensorflow==2.5.0
+tensorflow-gpu==2.5.0
 protobuf
 pandas
 numpy==1.19.2
