@@ -1,9 +1,14 @@
 #!/bin/bash
 
-# source $wd (working directory) variable
-cwd="${BASH_SOURCE%/*}"
-if [[ ! -d "$cwd" ]]; then cwd="$PWD"; fi
-. "$cwd/wd.sh"
+# tfod.sh
+#   Install TF object detection and verifies installation
+#
+# author: Everett
+# created: 2021-08-27 06:04
+# Github: https://github.com/antiqueeverett/
+
+# evaluate working directory
+wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
 # object detection resources
 TENSORFLOW_RESEARCH="$wd/external/models/research"

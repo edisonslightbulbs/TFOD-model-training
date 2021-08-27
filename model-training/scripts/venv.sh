@@ -1,9 +1,14 @@
 #!/bin/bash
 
-# source $wd (working directory) variable
-cwd="${BASH_SOURCE%/*}"
-if [[ ! -d "$cwd" ]]; then cwd="$PWD"; fi
-. "$cwd/wd.sh"
+# venv.sh
+#   Sets up a virtual environment with ipykernel
+#
+# author: Everett
+# created: 2021-08-27 06:22
+# Github: https://github.com/antiqueeverett/
+
+# evaluate working directory
+wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
 # change to working directory
 cd "$wd" || return

@@ -1,9 +1,14 @@
 #!/bin/bash
 
-# source $wd (working directory) variable
-cwd="${BASH_SOURCE%/*}"
-if [[ ! -d "$cwd" ]]; then cwd="$PWD"; fi
-. "$cwd/wd.sh"
+# train.sh
+#   Trains object detection model
+#
+# author: Everett
+# created: 2021-08-27 06:22
+# Github: https://github.com/antiqueeverett/
+
+# evaluate working directory
+wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
 TRAINING_STEPS=2000
 MODEL_DIRECTORY="$wd/models"

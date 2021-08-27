@@ -1,16 +1,14 @@
 #!/bin/bash
 
 # check-submodules.sh
-#   Helper that checks require submodule repositories
+#   Checks required submodule repositories
 #
 # author: Everett
 # created: 2021-08-26 11:34
 # Github: https://github.com/antiqueeverett/
 
-# source $wd (working directory) variable
-cwd="${BASH_SOURCE%/*}"
-if [[ ! -d "$cwd" ]]; then cwd="$PWD"; fi
-. "$cwd/wd.sh"
+# evaluate working directory
+wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
 # make sure submodules are initialized
 ANNOTATION_TOOL="$wd/external/labelImg"

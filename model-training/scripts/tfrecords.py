@@ -1,3 +1,4 @@
+# ref: https://github.com/nicknochnack/GenerateTFRecord
 """ Sample TensorFlow XML-to-TFRecord converter
 
 usage: generate_tfrecord.py [-h] [-x XML_DIR] [-l LABELS_PATH] [-o OUTPUT_PATH] [-i IMAGE_DIR] [-c CSV_PATH]
@@ -166,3 +167,4 @@ def main(_):
 
 if __name__ == '__main__':
     tf.app.run()
+

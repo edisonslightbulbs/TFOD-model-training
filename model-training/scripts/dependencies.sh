@@ -1,16 +1,14 @@
 #!/bin/bash
 
 # dependencies.sh
-#   Helper for installing pip and apt packages
+#   Installs essential apt and pip packages
 #
 # author: Everett
-# created: 2021-08-26 07:29
+# created: 2021-08-27 05:58
 # Github: https://github.com/antiqueeverett/
 
-# source $wd (working directory) variable
-cwd="${BASH_SOURCE%/*}"
-if [[ ! -d "$cwd" ]]; then cwd="$PWD"; fi
-. "$cwd/wd.sh"
+# evaluate working directory
+wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
 # setup vars for apt and pip package lists
 apt="$wd/resources/apt.txt"
@@ -30,7 +28,8 @@ echo ""
 #      [ -a ] leave STDIN unchanged while reading each line as a  command
 #      [ -r ] run iff line not empty
 xargs -a <(awk '! /^ *(#|$)/' "$apt") -r -- sudo apt install
-# xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip3 uninstall -y
-# xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip uninstall -y
 xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip install --upgrade
 xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip3 install --upgrade
+
+# xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip3 uninstall -y
+# xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip uninstall -y
