@@ -14,11 +14,11 @@ wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 apt="$wd/resources/apt.txt"
 pip="$wd/resources/pip.txt"
 
-echo "installing apt packages:"
+echo "-- installing apt packages:"
 cat "$apt"
 echo ""
 
-echo "installing pip packages:"
+echo "-- installing pip packages:"
 cat "$pip"
 echo ""
 

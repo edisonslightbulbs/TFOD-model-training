@@ -14,5 +14,7 @@ model="ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz"
 url="http://download.tensorflow.org/models/object_detection/tf2/20200711/$model"
 
 cd "$wd/models/pretrained" || true
+
+echo "-- downloading $model from $url"
 wget "$url"
 tar -zxvf "$model"

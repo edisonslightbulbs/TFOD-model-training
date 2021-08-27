@@ -14,6 +14,8 @@ wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 ANNOTATION_TOOL="$wd/external/labelImg"
 TENSORFLOW_MODELS="$wd/external/models"
 
+echo "-- checking submodules"
+
 # Initialize iff submodule dir empty
 if [ -z "$(ls -A "$ANNOTATION_TOOL")" ]; then
     command git pull --recurse-submodules -j 12

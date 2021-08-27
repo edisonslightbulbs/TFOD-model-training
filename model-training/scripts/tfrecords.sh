@@ -19,5 +19,8 @@ TRAINING_RECORD="$wd/records/train.record"
 TESTING_IMAGES="$wd/resources/images/test"
 TESTING_RECORD="$wd/records/test.record"
 
+rm -rf "$wd/records/*.record"  >/dev/null 2>&1
+echo "-- creating TF records using image annotations"
+
 python3 "$TF_RECORDS_SCRIPT" -x "$TRAINING_IMAGES" -l "$ANNOTATIONS" -o "$TRAINING_RECORD"
 python3 "$TF_RECORDS_SCRIPT" -x "$TESTING_IMAGES" -l "$ANNOTATIONS"  -o "$TESTING_RECORD"
