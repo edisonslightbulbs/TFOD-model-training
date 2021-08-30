@@ -24,11 +24,12 @@ OUTPUTARRAYS='TFLite_Detection_PostProcess','TFLite_Detection_PostProcess:1','TF
 NODES='detection_boxes,detection_classes,detection_features,detection_multiclass_scores,detection_scores,num_detections,raw_detection_boxes,raw_detection_scores'
 
 
-# convert to tfjs
-# tensorflowjs_converter --input_format=tf_saved_model --output_node_names="$NODES" --output_format=tfjs_graph_model --signature_name=serving_default "$SAVED_MODEL" "$TFJS_DIRECTORY"
+echo "-- exporting model in  tfjs format"
+tensorflowjs_converter --input_format=tf_saved_model --output_node_names="$NODES" --output_format=tfjs_graph_model --signature_name=serving_default "$SAVED_MODEL" "$TFJS_DIRECTORY"
 
 
-# convert to tflite
-# python3 "$TFLITE_EXPORT_SCRIPT"  --pipeline_config_path="$PIPELINE_CONFIG" --trained_checkpoint_dir="$TRAINING_DIRECTORY" --output_directory="$TFLITE_DIRECTORY"
+echo "-- exporting model in  tflite format"
+python3 "$TFLITE_EXPORT_SCRIPT"  --pipeline_config_path="$PIPELINE_CONFIG" --trained_checkpoint_dir="$TRAINING_DIRECTORY" --output_directory="$TFLITE_DIRECTORY"
 
 tflite_convert --saved_model_dir="$SAVED_MODEL" --output_file="$SAVED_MODEL/model.tflite" --input_shapes=1,300,300,3 --input_arrays=normalized_input_image_tensor --output_arrays="$OUTPUTARRAYS" --inference_type=FLOAT --allow_custom_ops
+
