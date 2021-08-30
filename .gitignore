@@ -21,3 +21,4 @@ model-training/models/checkpoint
 model-training/models/train
 model-training/models/export/
 venv/
+model-training/models/exported/
