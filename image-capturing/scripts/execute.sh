@@ -15,4 +15,4 @@ cd "$PROJECT_DIRECTORY" || return
 
 mkdir -p ./output
 rm -rf ./output/captured/*.png
-./build/bin/cv-k4a --logtostderr=1
+./build/bin/capture --logtostderr=1
