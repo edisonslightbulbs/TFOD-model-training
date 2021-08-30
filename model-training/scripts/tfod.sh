@@ -10,10 +10,9 @@
 # evaluate working directory
 wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
-# object detection resources
-MODEL_DIRECTORY="$wd/models"
-TENSORFLOW_RESEARCH="$wd/external/models/research"
+# setup object detection module
 PROTOCOL_BUFFERS="./object_detection/protos"
+TENSORFLOW_RESEARCH="$wd/external/models/research"
 PACKAGE_SETUP_SCRIPT="./object_detection/packages/tf2/setup.py"
 VERIFICATION_SCRIPT="./object_detection/builders/model_builder_tf2_test.py"
 
@@ -22,7 +21,3 @@ protoc "$PROTOCOL_BUFFERS/"*.proto --python_out=.
 cp "$PACKAGE_SETUP_SCRIPT" ./
 python3 -m pip install .
 python3 "$VERIFICATION_SCRIPT"
-
-rm -rf "$MODEL_DIRECTORY/checkpoint"  >/dev/null 2>&1
-rm -rf "$MODEL_DIRECTORY/*.index"  >/dev/null 2>&1
-rm -rf "$MODEL_DIRECTORY/*.data*"  >/dev/null 2>&1

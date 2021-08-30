@@ -28,8 +28,4 @@ echo ""
 #      [ -a ] leave STDIN unchanged while reading each line as a  command
 #      [ -r ] run iff line not empty
 xargs -a <(awk '! /^ *(#|$)/' "$apt") -r -- sudo apt install
-xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip install --upgrade
 xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip3 install --upgrade
-
-# xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip3 uninstall -y
-# xargs -a <(awk '! /^ *(#|$)/' "$pip") -r -- pip uninstall -y

@@ -11,6 +11,7 @@
 wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
 MODEL_DIRECTORY="$wd/models"
+TRAINING_DIRECTORY="$wd/models/training"
 EXPORT_DIRECTORY="$MODEL_DIRECTORY/export"
 TFJS_EXPORT="$EXPORT_DIRECTORY/tfjsexport"
 SAVED_MODEL="$EXPORT_DIRECTORY/saved_model"

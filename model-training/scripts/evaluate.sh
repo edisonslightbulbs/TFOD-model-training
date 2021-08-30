@@ -10,8 +10,8 @@
 # evaluate working directory
 wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
-MODEL_DIRECTORY="$wd/models"
-PIPELINE_CONFIG="$wd/models/pipeline.config"
+TRAINING_DIRECTORY="$wd/models/training"
+PIPELINE_CONFIG="$TRAINING_DIRECTORY/pipeline.config"
 TF_TRAINING_SCRIPT="$wd/external/models/research/object_detection/model_main_tf2.py"
 
-python3 "$TF_TRAINING_SCRIPT" --model_dir="$MODEL_DIRECTORY" --pipeline_config_path="$PIPELINE_CONFIG" --checkpoint_dir="$MODEL_DIRECTORY"
+python3 "$TF_TRAINING_SCRIPT" --model_dir="$TRAINING_DIRECTORY" --pipeline_config_path="$PIPELINE_CONFIG" --checkpoint_dir="$MODEL_DIRECTORY"

@@ -11,10 +11,10 @@
 # evaluate working directory
 wd="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
-PRETRAINED_MODEL="ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8"
-PRETRAINED_MODEL_DIRECTORY="$wd/models/pretrained/$PRETRAINED_MODEL"
+PRETRAINED_MODEL_NAME="ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8"
+PRETRAINED_MODEL_PATH="$wd/models/pretrained/$PRETRAINED_MODEL_NAME"
 
-MODEL_PIPELINE_CONFIG="$wd/models/pipeline.config"
-PRETRAINED_MODEL_PIPELINE_CONFIG="$PRETRAINED_MODEL_DIRECTORY/pipeline.config"
+TRAINING_PIPELINE_CONFIG="$wd/models/training/pipeline.config"
+PRETRAINED_MODEL_PIPELINE_CONFIG="$PRETRAINED_MODEL_PATH/pipeline.config"
 
-vimdiff "$MODEL_PIPELINE_CONFIG" "$PRETRAINED_MODEL_PIPELINE_CONFIG"
+vimdiff "$TRAINING_PIPELINE_CONFIG" "$PRETRAINED_MODEL_PIPELINE_CONFIG"
