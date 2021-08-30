@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-project(k4a-capture)
+project(capture)
 
 # optimization for dev environments
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -51,6 +51,12 @@ find_package(OpenCV REQUIRED)
 find_package(gflags REQUIRED)
 
 # setup libtorch
+option(SETUP_LIBTORCH "Setup libtorch" ON)
+if(SETUP_LIBTORCH)
+    execute_process(
+        COMMAND /bin/bash ./scripts/libtorch.sh
+        WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
+endif()
 set(CMAKE_PREFIX_PATH ${EXT_DIR}/libtorch)
 set(CMAKE_CXX_FLAGS
     ${CMAKE_CXX_FLAGS}
@@ -88,14 +94,14 @@ file(GLOB_RECURSE LIBS_SRC
     )
 
 # add executable
-add_executable(k4a-capture
+add_executable(capture
     ${EXT_SRC}
     ${LIBS_SRC}
     ${SRC_DIR}/main.cpp
     )
 
 # include directories
-target_include_directories(k4a-capture PRIVATE
+target_include_directories(capture PRIVATE
     ${OpenCV_INCLUDE_DIRS}
     ${K4A_VERSION}
     ${K4A_INCLUDE}
@@ -103,7 +109,7 @@ target_include_directories(k4a-capture PRIVATE
     )
 
 # link libraries
-target_link_libraries(k4a-capture
+target_link_libraries(capture
     ${OpenCV_LIBS}
     glog
     gflags
@@ -113,7 +119,7 @@ target_link_libraries(k4a-capture
 
 option(EXECUTE_TARGET "Execute post build" ON) # default OFF
 if(EXECUTE_TARGET)
-    add_custom_command(TARGET k4a-capture
+    add_custom_command(TARGET capture
         POST_BUILD
         COMMAND ./scripts/execute.sh
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
