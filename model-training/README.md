@@ -37,4 +37,4 @@ Given that this project primarily uses scripts, it's helpful to have an idea of 
 Now that that's out of the way, dig into the project notebooks which are self-documenting.
 
 1.  [train.ipynb](./train.ipynb)
-2.  [export.ipynb](./export.ipynb)e
+2.  [export.ipynb](./export.ipynb)
