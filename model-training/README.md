@@ -34,7 +34,7 @@ Given that this project primarily uses scripts, it's helpful to have an idea of 
 └── scripts
 ```
 
-Now that that's out of the way - the project houses three notebooks that build on each other. The notebooks are self-documnting and should be reviewed in the order:
+Now that that's out of the way, dig into the project notebooks which are self-documenting.
 
 1.  [train.ipynb](./train.ipynb)
 2.  [export.ipynb](./export.ipynb)e
